@@ -41,16 +41,13 @@ def sum_all_divisors(n):
 def non_abundant_sum():
     abundant=[]
     numbers=set(range(1,28124))
-    for i in range(1,100):
-        if i<sum_all_divisors(i):
+    for i in range(1,28124):
+        if i<sum_all_divisors(i): #if abundant
             abundant.append(i)
-    combos=list(itertools.combinations(abundant, 2))
-    print combos
+    combos=list(itertools.combinations_with_replacement(abundant, 2))
     combosum=set()
     for j in range(0,len(combos)):
-        print combos[j]
         combosum.add(sum(combos[j]))
-    print combosum 
     remaining=numbers-combosum
     return sum(remaining) 
 
